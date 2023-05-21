@@ -1,9 +1,9 @@
-import { useState } from 'react';
-import { Container, Box } from '@chakra-ui/react';
-import Header from './components/Header';
-import Footer from './components/Footer';
-import TextInput from './components/TextInput';
-import KeywordsModal from './components/KeywordsModal';
+import { useState } from "react";
+import { Container, Box } from "@chakra-ui/react";
+import Header from "./components/Header";
+import Footer from "./components/Footer";
+import TextInput from "./components/TextInput";
+import KeywordsModal from "./components/KeywordsModal";
 
 const App = () => {
   const [keywords, setKeywords] = useState([]);
@@ -15,17 +15,17 @@ const App = () => {
     setIsOpen(true);
 
     const options = {
-      method: 'POST',
+      method: "POST",
       headers: {
-        'Content-Type': 'application/json',
-        Authorization: `Bearer ${import.meta.env.VITE_OPENAI_API_KEY}`,
+        "Content-Type": "application/json",
+        Authorization: `Bearer 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`,
       },
       body: JSON.stringify({
-        model: 'text-davinci-003',
+        model: "text-davinci-003",
         prompt:
-          'Extract keywords from this text. Make the first letter of every word uppercase and separate with commas:\n\n' +
+          "Extract keywords from this text. Make the first letter of every word uppercase and separate with commas:\n\n" +
           text +
-          '',
+          "",
         temperature: 0.5,
         max_tokens: 60,
         top_p: 1.0,
@@ -45,6 +45,7 @@ const App = () => {
       setLoading(false);
     } catch (error) {
       console.error(error);
+      console.error(import.meta.env.VITE_OPENAI_API_URL);
     }
   };
 
@@ -53,8 +54,8 @@ const App = () => {
   };
 
   return (
-    <Box bg='blue.600' color='white' height='100vh' paddingTop={130}>
-      <Container maxW='3xl' centerContent>
+    <Box bg="blue.600" color="white" height="100vh" paddingTop={130}>
+      <Container maxW="3xl" centerContent>
         <Header />
         <TextInput extractKeywords={extractKeywords} />
         <Footer />
