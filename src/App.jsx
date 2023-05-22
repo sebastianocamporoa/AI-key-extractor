@@ -18,7 +18,7 @@ const App = () => {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
-        Authorization: `Bearer ${netlify.toml.VITE_OPENAI_API_KEY}`,
+        Authorization: `Bearer ${process.env.VITE_OPENAI_API_KEY}`,
       },
       body: JSON.stringify({
         model: "text-davinci-003",
@@ -35,14 +35,14 @@ const App = () => {
     };
 
     try {
-      const response = await fetch(netlify.toml.VITE_OPENAI_API_URL, options);
+      const response = await fetch(process.env.VITE_OPENAI_API_URL, options);
       const json = await response.json();
       console.log(json.choices[0].text.trim());
       setKeywords(json.choices[0].text.trim());
       setLoading(false);
     } catch (error) {
       console.error(error);
-      console.error(import.meta.env.VITE_OPENAI_API_URL);
+      console.error(process.env.VITE_OPENAI_API_URL);
     }
   };
 
