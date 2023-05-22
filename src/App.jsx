@@ -35,10 +35,7 @@ const App = () => {
     };
 
     try {
-      const response = await fetch(
-        import.meta.env.VITE_OPENAI_API_URL,
-        options
-      );
+      const response = await fetch(netlify.toml.VITE_OPENAI_API_URL, options);
       const json = await response.json();
       console.log(json.choices[0].text.trim());
       setKeywords(json.choices[0].text.trim());
