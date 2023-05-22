@@ -18,7 +18,9 @@ const App = () => {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
-        Authorization: `Bearer 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`,
+        Authorization: `Bearer ${import.meta.env.VITE_OPENAI_API_KEY_1}${
+          import.meta.env.VITE_OPENAI_API_KEY_2
+        }`,
       },
       body: JSON.stringify({
         model: "text-davinci-003",
