@@ -13,6 +13,7 @@ const App = () => {
   const extractKeywords = async (text) => {
     setLoading(true);
     setIsOpen(true);
+    console.log(process.env);
 
     const options = {
       method: "POST",
