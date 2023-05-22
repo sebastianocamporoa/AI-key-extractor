@@ -14,7 +14,7 @@ const Footer = () => {
             <Image src={logo} marginRight={1} />
             <Text>Powered By Open AI</Text>
           </Flex>
-          <Text>Created by Sebastian Ocampo Roa</Text>
+          <Text>Created by Sebastian Ocampo Roa - Harold Quiñones</Text>
         </Flex>
       </Flex>
     </Box>
